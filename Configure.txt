@@ -1,0 +1,83 @@
+express 
+cors 
+morgan 
+sequelize-cli 
+mysql2 
+jsonwebtoken
+bcrypt
+nodemon
+dotenv
+axios
+
+// inisiasi projek
+npm init -y
+
+// install library
+npm install express cors morgan sequelize mysql2 jsonwebtoken bcrypt
+
+// file
+touch app.js .env .gitignore
+
+// install nodemon
+npm i nodemon --save-dev
+
+// installasi sequelize
+npx sequelize-cli init
+
+// edit config.js
+
+// create db
+sequelize db:create 
+npx sequelize-cli db:create
+
+// model atau tabel
+sequelize model:create --name User --attributes name:string,username:string,password:string
+npx sequelize-cli model:create --name User --attributes name:string,username:string,email:string,password:string
+
+//setting migration & user.js
+
+// migration to db
+sequelize db:migrate
+npx sequelize-cli db:migrate
+npx sequelize-cli db:migrate:undo:all
+
+// seeders 
+sequelize seed:generate --name seed-users
+npx sequelize-cli seed:generate --name seed-users
+
+// seeders to db
+sequelize db:seed:all
+npx sequelize-cli db:seed:undo
+npx sequelize-cli db:seed:all
+
+// buat folder routes dan controllers/handlers
+mkdir handlers routes
+
+// buat file routes
+touch routes/index.js
+
+//edit routes/index.js
+
+// make file in handlers
+touch handlers/index.js handlers/login.js handlers/register.js handlers/update.js handlers/remove.js
+touch handlers/getOne.js handlers/getAll.js
+// edit handlers/..
+// edit index.js
+
+
+// register
+http://localhost:3001/user/register = name,username,password
+
+// login
+http://localhost:3001/user/login = username,password
+
+// update
+http://localhost:3001/user/update/:id = name
+http://localhost:3001/user/update-username/:id = username
+
+// getall
+http://localhost:3001/user/get
+
+
+GOALS
+// login, register, update-user, delete-users
